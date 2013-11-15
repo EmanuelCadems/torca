@@ -1,9 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Torca store.
 
-Things you may want to cover:
+Topics:
 
 * Ruby version
 
@@ -21,8 +20,42 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+== Ruby version
+
+  ruby-2.0.0-p195
+
+if you use rvm, you can copy .rvmrc sample file with:
+  cp .rvmrc.sample .rvmrc
+
+== System dependencies
+
+Imagemagick. On ubuntu you can install with:
+
+  sudo apt-get install imagemagick
+
+== Configuration
+  The owner should give you the passwords that you need for doing deploy.
+  This are in application.yml file.
+
+  Then you past to heroku with generator of figaro.
+
+== Database creation
+
+  rake db:create
+
+== Database initialization
+
+  rake db:migrate
+  rake db:seed
+  rake spree_sample:load
+  rake csv:load
+
+== How to run the test suite
+
+  rake db:test:prepare
+  rspec spec/
 
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+

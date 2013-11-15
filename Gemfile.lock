@@ -153,6 +153,9 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     ffaker (1.20.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     globalize (4.0.0.alpha.2)
       activemodel (>= 4.0.0)
       activerecord (>= 4.0.0)
@@ -280,6 +283,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  figaro (= 0.7.0)
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)

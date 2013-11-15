@@ -15,3 +15,7 @@
 /log/*.log
 /tmp
 .rvmrc
+public/spree/products/*
+
+# Ignore application configuration
+/config/application.yml
