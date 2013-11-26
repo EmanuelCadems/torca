@@ -61,8 +61,8 @@ z = Spree::Zone.create!(name: 'Argentina',kind: 'country', country_ids:["", coun
 
 SHIPPING_METHODS.each do |sm|
   Spree::ShippingMethod.create!(
-    name: sm[1],
-    admin_name: sm[0],
+    name: sm[0],
+    admin_name: sm[1],
     shipping_categories: [Spree::ShippingCategory.first],
     zones: [z],
     calculator_type: "Spree::Calculator::Shipping::FlatPercentItemTotal"

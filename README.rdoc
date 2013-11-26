@@ -33,6 +33,9 @@ Imagemagick. On ubuntu you can install with:
 
   sudo apt-get install imagemagick
 
+Install graphviz only for generate digrams Entity Relationship. If you don't wish, it isn't necessary.
+  sudo apt-get install graphviz
+
 == Configuration
   The owner should give you the passwords that you need for doing deploy.
   This are in application.yml file.

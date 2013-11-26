@@ -17,3 +17,7 @@ gem 'spree_i18n',        github: 'spree/spree_i18n',        branch: '2-1-stable'
 group :doc do
   gem 'sdoc', require: false
 end
+
+group :development do
+  gem 'rails-erd',    '1.1.0'
+end
