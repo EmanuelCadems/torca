@@ -20,3 +20,4 @@ public/spree/products/*
 # Ignore application configuration
 /config/application.yml
 erd.pdf
+/coverage

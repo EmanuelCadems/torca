@@ -1,4 +1,23 @@
 GIT
+  remote: git://github.com/bmabey/database_cleaner.git
+  revision: 733849482546297c48f97b292cf3ad4e498eaad0
+  specs:
+    database_cleaner (1.2.0)
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: 20a77320fe43581c1c8ea949c83ea8a1b8ca6331
+  branch: records-in-rails-4
+  specs:
+    rspec-rails (2.14.0.rc1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 2.14.0.rc1)
+      rspec-expectations (= 2.14.0.rc1)
+      rspec-mocks (= 2.14.0.rc1)
+
+GIT
   remote: git://github.com/spree/spree.git
   revision: 3c5ff8a469cc1f468303c86b7da23af7c09aed02
   branch: 2-1-stable
@@ -114,6 +133,7 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_list (0.2.0)
       activerecord (>= 3.0)
+    addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
     awesome_nested_set (3.0.0.rc.2)
@@ -127,6 +147,12 @@ GEM
     cancan (1.6.10)
     canonical-rails (0.0.3)
       rails (>= 3.1, < 5.0)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     choice (0.1.6)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -151,8 +177,15 @@ GEM
       warden (~> 1.2.3)
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
+    diff-lcs (1.2.5)
+    docile (1.1.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     ffaker (1.20.0)
     figaro (0.7.0)
       bundler (~> 1.0)
@@ -179,6 +212,8 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.0)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -203,9 +238,12 @@ GEM
       mime-types
     paranoia (2.0.1)
       activerecord (~> 4.0)
+    pg (0.17.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     rabl (0.8.4)
       activesupport (>= 2.3.14)
     rack (1.5.2)
@@ -238,6 +276,10 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rspec-core (2.14.0.rc1)
+    rspec-expectations (2.14.0.rc1)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.0.rc1)
     ruby-graphviz (1.0.9)
     sass (3.2.12)
     sass-rails (4.0.1)
@@ -250,6 +292,11 @@ GEM
     select2-rails (3.4.9)
       sass-rails
       thor (~> 0.14)
+    simplecov (0.8.2)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -284,19 +331,29 @@ GEM
       tzinfo
     warden (1.2.3)
       rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara (= 2.1.0)
   coffee-rails (~> 4.0.0)
+  database_cleaner!
+  factory_girl_rails (= 4.2.1)
   figaro (= 0.7.0)
   jbuilder (~> 1.2)
   jquery-rails
+  launchy
+  pg
+  puma
   rails (= 4.0.0)
   rails-erd (= 1.1.0)
+  rspec-rails!
   sass-rails (~> 4.0.0)
   sdoc
+  simplecov
   spree!
   spree_auth_devise!
   spree_i18n!
