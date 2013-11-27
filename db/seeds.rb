@@ -79,6 +79,7 @@ STOCK_LOCATIONS.each do |sl|
   state = Spree::State.where(name: sl[3]).first
 
   Spree::StockLocation.create!(
+    erp_id:                  sl[0],
     admin_name:              sl[1],
     name:                    sl[2] + ' ' + sl[4],
     address1:                sl[4],

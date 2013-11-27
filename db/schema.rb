@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105203335) do
+ActiveRecord::Schema.define(version: 20131127151426) do
 
   create_table "spree_activator_translations", force: true do |t|
     t.integer  "spree_activator_id"
@@ -562,6 +562,7 @@ ActiveRecord::Schema.define(version: 20131105203335) do
     t.boolean  "backorderable_default",  default: false
     t.boolean  "propagate_all_variants", default: true
     t.string   "admin_name"
+    t.integer  "erp_id"
   end
 
   create_table "spree_stock_movements", force: true do |t|

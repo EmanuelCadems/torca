@@ -21,3 +21,4 @@ public/spree/products/*
 /config/application.yml
 erd.pdf
 /coverage
+/stock_web.csv

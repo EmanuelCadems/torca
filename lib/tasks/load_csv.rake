@@ -63,5 +63,17 @@ namespace :csv do
         end
       end
     end
+
+    # stock_locations = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/product.csv")
+
+    # if File.exist?("stock_locations.csv")
+    #   CSV.foreach("./stock_web.csv", :quote_char => '"',:col_sep => ";") do |row|
+    #     Spree::Variant.all.each do |variant|
+    #       variant.stock_items.each do |stock_item|
+    #         Spree::StockMovement.create(:quantity => 10, :stock_item => stock_item)
+    #       end
+    #     end
+    #   end
+    # end
   end
 end
