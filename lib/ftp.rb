@@ -8,7 +8,7 @@ class Ftp
     url["ftp://torcaweb"] = "ftp://"+ENV["USER_FTP"]+":"+ENV["PASSWORD_FTP"]
     name = url.split("/").last
 
-    open("./tmp/#{name}", 'wb') do |file|
+    open("./tmp/#{name}", 'wb:UTF-8') do |file|
       begin
         file << open(url).read
       rescue Exception => e

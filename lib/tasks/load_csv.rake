@@ -24,9 +24,9 @@ namespace :csv do
     end
 
     products = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/product.csv")
-
+# CSV.foreach(filepath, {encoding: "Windows-1251:utf-8", headers: false, col_sep: ";", quote_char: "\"", force_quotes: true})
     if File.exist?("./tmp/#{products}")
-      CSV.foreach("./tmp/#{products}", :quote_char => '"',:col_sep => ";") do |row|
+      CSV.foreach("./tmp/#{products}", :quote_char => '"',:col_sep => ";", :encoding => 'UTF-8') do |row|
         product = Spree::Product.create!(
           sku:            row[0],
           name:           row[1],
