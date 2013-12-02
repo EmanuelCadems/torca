@@ -24,7 +24,7 @@ namespace :csv do
     end
 
     products = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/product.csv")
-# CSV.foreach(filepath, {encoding: "Windows-1251:utf-8", headers: false, col_sep: ";", quote_char: "\"", force_quotes: true})
+
     if File.exist?("./tmp/#{products}")
       CSV.foreach("./tmp/#{products}", :quote_char => '"',:col_sep => ";", :encoding => 'UTF-8') do |row|
         product = Spree::Product.create!(
@@ -64,16 +64,30 @@ namespace :csv do
       end
     end
 
-    # stock_locations = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/product.csv")
 
-    # if File.exist?("stock_locations.csv")
-    #   CSV.foreach("./stock_web.csv", :quote_char => '"',:col_sep => ";") do |row|
-    #     Spree::Variant.all.each do |variant|
-    #       variant.stock_items.each do |stock_item|
-    #         Spree::StockMovement.create(:quantity => 10, :stock_item => stock_item)
-    #       end
-    #     end
-    #   end
-    # end
+    stock_items = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/STOCK_WEB.csv")
+
+    if File.exist?("STOCK_WEB.csv")
+      CSV.foreach("./STOCK_WEB.csv", :quote_char => '"',:col_sep => ";") do |row|
+        Spree::Variant.all.each do |variant|
+          variant.stock_items.each do |stock_item|
+            Spree::StockMovement.create(:quantity => 10, :stock_item => stock_item)
+          end
+        end
+      end
+    end
+
+    stock_items = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/STOCK_WEB.csv")
+
+    if File.exist?("./tmp/#{stock_items}")
+      CSV.foreach("./tmp/#{stock_items}", :quote_char => '"',:col_sep => ";", :encoding => 'UTF-8') do |row|
+        stock_item_id = Spree::StockItem.joins(:stock_location, :variant).where("spree_stock_locations.erp_id = ? and spree_variants.sku = ?", row[2], row[1]).first.id
+
+        if stock_item_id
+          Spree::StockMovement.create!(:quantity => row[5].to_i, :stock_item_id => stock_item_id)
+        end
+      end
+    end
+
   end
 end
