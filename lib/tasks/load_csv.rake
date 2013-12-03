@@ -34,9 +34,9 @@ namespace :csv do
           price:          row[3].to_d,
           shipping_category_id: Spree::ShippingCategory.first.id)
 
-        stock = product.stock_items.first
-        stock.update_attribute(:count_on_hand, row[4].to_i)
-        stock.save
+        # stock = product.stock_items.first
+        # stock.update_attribute(:count_on_hand, row[4].to_i)
+        # stock.save
 
         taxon = nil
 
@@ -59,19 +59,6 @@ namespace :csv do
           rescue Exception => e
             puts "Doesn't may open the ftp file because have ocurred the following errors:"
             puts e.message
-          end
-        end
-      end
-    end
-
-
-    stock_items = Ftp.download("ftp://torcaweb@torcasistemas.no-ip.org/exportaciones/finales/STOCK_WEB.csv")
-
-    if File.exist?("STOCK_WEB.csv")
-      CSV.foreach("./STOCK_WEB.csv", :quote_char => '"',:col_sep => ";") do |row|
-        Spree::Variant.all.each do |variant|
-          variant.stock_items.each do |stock_item|
-            Spree::StockMovement.create(:quantity => 10, :stock_item => stock_item)
           end
         end
       end
