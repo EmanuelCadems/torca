@@ -7,7 +7,7 @@
         <div class="shipment">
           <h3 class="stock-location" data-hook="stock-location">
             <%= Spree.t(:package_from) %>
-            <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %></strong>
+            <strong class="stock-location-name" data-hook="stock-location-name"><%= ship_form.object.stock_location.name %> </strong>
           </h3>
           <table class="stock-contents" data-hook="stock-contents">
             <colgroup>
@@ -48,7 +48,7 @@
           </ul>
 
 
-          <%= ship_form.select :stock_location_id, locations_available(ship_form) %>
+          <%= ship_form.select :stock_location_id, locations_available(ship_form.object.manifest) %>
         </div>
 
       <% end %>

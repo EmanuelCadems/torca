@@ -38,7 +38,28 @@ Install graphviz only for generate digrams Entity Relationship. If you don't wis
 
 == Configuration
   The owner should give you the passwords that you need for doing deploy.
-  This are in application.yml file.
+  This are in application.yml file. This file are located into config folder and it looks like this:
+
+  development:
+    USER_FTP: your_ftp_user
+    PASSWORD_FTP: your_ftp_password
+    SERVER_FTP: your_ftp_server
+
+    SOAP_USER: user_andreani_service
+    SOAP_PASSWORD: password_andreani_service
+
+    CONTENT_TYPE_CONFIRMAR_COMPRA: 'application/soap+xml;charset=UTF-8;action="your action of soap servide"'
+    SOAP_CONFIRMAR_COMPRA: "url relative to soap service"
+
+    CONTENT_TYPE_CONSULTAR_SUCURSALES: 'application/soap+xml;charset=UTF-8;action="bla bla"'
+    SOAP_CONSULTAR_SUCURSALES: "url relative to soap service"
+
+    CONTENT_TYPE_COTIZAR_ENVIO: 'application/soap+xml;charset=UTF-8;action="bla bla"'
+    SOAP_COTIZAR_ENVIO: "url relative to soap service"
+
+  test:
+    idem
+
 
   Then you past to heroku with generator of figaro.
 

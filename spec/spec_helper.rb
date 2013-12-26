@@ -1,11 +1,19 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start :rails do
+  # filters.clear # This will remove the :root_filter that comes via simplecov's defaults
+  # add_filter do |src|
+  #   !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ '/app/services/'
+  # end
+
+  # add_group "Services", "app/services/*.rb"
+end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -22,6 +30,9 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL,           type: feature
+  config.include Capybara::RSpecMatchers, type: feature
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -56,6 +67,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    stub_request(:any, /e-andreani.com/).to_rack(FakeSoap)
   end
 
   config.after(:each) do

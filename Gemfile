@@ -8,11 +8,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder',     '~> 1.2'
 gem 'figaro',       '0.7.0'
-gem 'savon',        '2.0.0'
 
 gem 'spree',             github: 'spree/spree',             branch: '2-1-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 gem 'spree_i18n',        github: 'spree/spree_i18n',        branch: '2-1-stable'
+gem 'sinatra',      '1.4.4'
 
 group :doc do
   gem 'sdoc', require: false
@@ -33,6 +33,7 @@ group :test do
   gem 'database_cleaner',    github: 'bmabey/database_cleaner'
   gem 'simplecov',           require: false
   gem 'launchy'
+  gem 'webmock',             '1.16.1'
 end
 
 group :production do
