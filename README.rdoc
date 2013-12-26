@@ -62,6 +62,7 @@ Install graphviz only for generate digrams Entity Relationship. If you don't wis
 
 
   Then you past to heroku with generator of figaro.
+    rake figaro:heroku
 
 == Database creation
 
