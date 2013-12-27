@@ -12,10 +12,15 @@ Spree.config do |config|
   # Uncomment to override the default site name.
   config.site_name = "Torca"
 
-  config.use_s3 = false
-  # config.s3_bucket = ENV['AWS_BUCKET']
-  # config.s3_access_key = ENV['AWS_ACCESS_KEY_ID']
-  # config.s3_secret = ENV['AWS_SECRET_ACCESS_KEY']
+  if Rails.env.production?
+    config.use_s3 = true
+    config.s3_bucket = ENV['AWS_BUCKET']
+    config.s3_access_key = ENV['AWS_ACCESS_KEY_ID']
+    config.s3_secret = ENV['AWS_SECRET_ACCESS_KEY']
+  else
+    config.use_s3 = false
+  end
+
 end
 
 Spree.user_class = "Spree::User"
