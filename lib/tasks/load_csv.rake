@@ -1,5 +1,8 @@
 #encoding=utf-8
 require 'csv'
+require "#{Rails.root}/lib/load_subcategory.rb"
+require "#{Rails.root}/lib/ftp.rb"
+
 desc "Load CSV"
 namespace :csv do
   task :load => :environment do
