@@ -10,10 +10,10 @@ gem 'turbolinks'
 gem 'jbuilder',     '~> 1.2'
 gem 'figaro',       '0.7.0'
 
-gem 'spree',             github: 'spree/spree',             branch: '2-1-stable'
+gem 'spree',             '2.1.3'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 gem 'spree_i18n',        github: 'spree/spree_i18n',        branch: '2-1-stable'
-gem 'sinatra',      '1.4.4'
+gem 'sinatra',           '1.4.4'
 
 group :doc do
   gem 'sdoc', require: false
