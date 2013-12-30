@@ -14,6 +14,7 @@ gem 'spree',             '2.1.3'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 gem 'spree_i18n',        github: 'spree/spree_i18n',        branch: '2-1-stable'
 gem 'sinatra',           '1.4.4'
+gem 'pg'
 
 group :doc do
   gem 'sdoc', require: false
@@ -24,7 +25,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails',         github: 'rspec/rspec-rails', branch: 'records-in-rails-4'
   gem 'factory_girl_rails',  '4.2.1'
 end
@@ -38,7 +38,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
 end
